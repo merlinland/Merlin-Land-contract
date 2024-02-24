@@ -15,13 +15,14 @@ contract MerlinLand is DN404, Ownable {
     string private _symbol = "MerlinLand";
     uint256 public constant LandMaxSupply = 576 * 576 ; 
     uint256 public constant TokenMaxSupply = 576 * 576 * 10 ** 18; 
-    uint256 public constant MintLimtiPerWallet = 10 * 10 ** 18;
 
+    address public allowedMerlinLandDistributor = 0x43f602eA11EfCa691F165e2B41B9D9771207A292;
 
+    
     constructor() {
         _initializeOwner(msg.sender);
         address mirror = address(new DN404Mirror(msg.sender));
-        _initializeDN404(0, msg.sender, mirror);
+        _initializeDN404(576 * 576 * 10 ** 18, msg.sender, mirror);
         
     }
 
@@ -38,14 +39,16 @@ contract MerlinLand is DN404, Ownable {
         SafeTransferLib.safeTransferAllETH(msg.sender);
     }
 
-    function mint() public {
-    uint256 mintAmount = 1 * 10 ** 18; 
-    require(totalSupply() + mintAmount <= TokenMaxSupply, "Minting would exceed max supply");
-    require(balanceOf(msg.sender) < MintLimtiPerWallet, "Mint limit reached.");
-
-    _mint(msg.sender, mintAmount); 
-
+    function setSkipMerlinLandDistributor(address MerlinLandDistributor, bool skip) public {
+        require(msg.sender == allowedMerlinLandDistributor, "Caller is not the allowed MerlinLandDistributor");
+        _setSkipNFT(MerlinLandDistributor, skip);
     }
+
+    function setAllowedMerlinLandDistributor(address _newDistributor) public onlyOwner {
+        require(_newDistributor != address(0), "Invalid address");
+        allowedMerlinLandDistributor = _newDistributor;
+    }
+
 
     function LandIDformXY(uint256 tokenId) public pure returns (uint256 x, uint256 y) {
         require(tokenId >= 1 && tokenId <= LandMaxSupply, "Land ID goes beyond borders");
