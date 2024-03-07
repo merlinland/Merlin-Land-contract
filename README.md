@@ -3,7 +3,7 @@
 
 ## Overview
 
-`MerlinLand` is a pioneering blockchain-based virtual land system, operational on the Merlin network and conforming to the `ERC-1420` protocol. This advanced protocol is an enhanced version of the DN404 protocol, specifically designed to integrate inscriptions, and facilitate interchange between NFTs and ERC20 tokens. `MerlinLand` enables users to own, trade, and visually represent virtual land parcels as unique non-fungible tokens (NFTs) coupled with ERC20 capabilities. Each parcel is distinctly identifiable and can be visualized through SVG images dynamically generated based on its coordinates within the expansive MerlinLand universe.
+`MerlinLand` is a pioneering blockchain-based virtual land system, operational on the Merlin network and conforming to the `ERC-1420` protocol. This  protocol is an enhanced version of the DN404 protocol, specifically designed to integrate inscriptions, and facilitate interchange between NFTs and ERC20 tokens. `MerlinLand` enables users to own, trade, and visually represent virtual land parcels as unique non-fungible tokens (NFTs) coupled with ERC20 capabilities. Each parcel is distinctly identifiable and can be visualized through SVG images dynamically generated based on its coordinates within the expansive MerlinLand universe.
 
 ## Contract Features
 
