@@ -16,8 +16,6 @@
 ## Key Functions
 
 - **`name()` and `symbol()`**: Provide the collection's name and symbol, aligning with the standard ERC-721 naming conventions.
-- **`setSkipMerlinLandDistributor(address MerlinLandDistributor, bool skip)`**: Grants the contract owner the authority to appoint or revoke a distributor for MerlinLand NFTs.
-- **`setAllowedMerlinLandDistributor(address _newDistributor)`**: Facilitates the update of distribution rights to a new address, enhancing the adaptability in distributor management.
 - **`LandIDformXY(uint256 tokenId)` and `XYformLandID(uint256 x, uint256 y)`**: Enable seamless conversion between a token ID and its grid coordinates within MerlinLand, simplifying the land parcel mapping and identification process.
 - **`tokenURI(uint256 tokenId)`**: Generates a distinct URI for each token, encapsulating metadata and a base64-encoded SVG image that visually depicts the land parcel.
 
